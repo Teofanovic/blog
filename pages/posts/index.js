@@ -28,7 +28,7 @@ const Posts = () => {
     <>
       <Header currentRoute="posts" />
       <div className="row justify-content-center">
-        <div className="col-sm-12 col-md-10 col-lg-7 justify-content-center">
+        <div className="col-sm-12 col-md-10 col-lg-6 justify-content-center">
           {posts &&
             posts.map((post) => (
               <Post key={post.id} title={post.title} author={'test'}>
