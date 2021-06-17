@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Header = ({ currentRoute }) => {
+const Header = ({ currentRoute, hideButtons = false }) => {
   const routes = ['Posts', 'Images'];
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -9,21 +9,22 @@ const Header = ({ currentRoute }) => {
           <a className="navbar-brand">Blog</a>
         </Link>
         <ul className="nav nav-pills">
-          {routes.map((route) => {
-            return (
-              <Link key={route} href={`/${route.toLowerCase()}`}>
-                <a
-                  className={
-                    currentRoute?.toLowerCase() === route.toLowerCase()
-                      ? 'nav-link active'
-                      : 'nav-link'
-                  }
-                >
-                  {route}
-                </a>
-              </Link>
-            );
-          })}
+          {!hideButtons &&
+            routes.map((route) => {
+              return (
+                <Link key={route} href={`/${route.toLowerCase()}`}>
+                  <a
+                    className={
+                      currentRoute?.toLowerCase() === route.toLowerCase()
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }
+                  >
+                    {route}
+                  </a>
+                </Link>
+              );
+            })}
         </ul>
       </div>
     </nav>

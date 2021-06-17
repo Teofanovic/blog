@@ -13,7 +13,6 @@ const Images = () => {
       .get(`https://jsonplaceholder.typicode.com/photos?_limit=${itemsPerPage}`)
       .then((res) => {
         setPhotos(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, [itemsPerPage]);
@@ -25,7 +24,7 @@ const Images = () => {
         <div className="col-sm-12 col-md-10 justify-content-center">
           {photos &&
             photos.map((photo) => (
-              <Link href={`/images/${photo.id}`}>
+              <Link href={`/images/${photo.id}`} key={photo.id}>
                 <img
                   src={photo.thumbnailUrl}
                   className="img-thumbnail m-sm-1 m-lg-2"

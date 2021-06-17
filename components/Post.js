@@ -1,9 +1,22 @@
-const Post = ({ title, author, children }) => {
+import Link from 'next/link';
+
+const Post = ({ id, title, children }) => {
   return (
     <div className="p-4 py-3">
-      <h4>{title}</h4>
-      <h6>By: {author}</h6>
-      <p>{children}</p>
+      <Link href={`/posts/${id}`}>
+        <h4 style={{ cursor: 'pointer' }}>{title}</h4>
+      </Link>
+      <p
+        style={{
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          height: '20px',
+        }}
+      >
+        {children}
+      </p>
       <hr />
     </div>
   );

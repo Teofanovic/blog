@@ -31,7 +31,12 @@ const Posts = () => {
         <div className="col-sm-12 col-md-10 col-lg-6 justify-content-center">
           {posts &&
             posts.map((post) => (
-              <Post key={post.id} title={post.title} author={'test'}>
+              <Post
+                key={post.id}
+                title={post.title}
+                author={'test'}
+                id={post.id}
+              >
                 {post.body}
               </Post>
             ))}

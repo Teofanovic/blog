@@ -11,15 +11,17 @@ const Image = () => {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/photos?id=${imageId}`)
-      .then((res) => {
-        if (res.data[0]) {
-          setImage(res.data[0]);
-        }
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (imageId) {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/photos?id=${imageId}`)
+        .then((res) => {
+          if (res.data[0]) {
+            setImage(res.data[0]);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [imageId]);
 
   return (
     <>
